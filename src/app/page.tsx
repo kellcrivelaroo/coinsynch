@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>CoinSynch</main>
+  return <main></main>
 }
