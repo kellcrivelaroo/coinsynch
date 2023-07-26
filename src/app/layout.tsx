@@ -18,9 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`overflow-x-hidden text-sm text-text ${roboto.className}`}
-      >
+      <body className={`overflow-x-hidden text-text ${roboto.className}`}>
         <Header />
         {children}
       </body>

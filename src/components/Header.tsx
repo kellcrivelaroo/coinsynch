@@ -6,8 +6,8 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header
-      className="lg:grid-row-1 grid-cols-auto mx-auto grid max-w-[1440px] grid-rows-[1fr_auto] shadow-md lg:grid-cols-[auto]
-    lg:shadow-none"
+      className="my-container lg:grid-row-1 grid-cols-auto mx-auto grid grid-rows-[1fr_auto] text-sm shadow-md
+    lg:grid-cols-[auto] lg:shadow-none"
     >
       {/* Logo and Nav (tablet+ only) */}
       <div className="flex h-14 items-center gap-10 pl-4 md:pl-0">

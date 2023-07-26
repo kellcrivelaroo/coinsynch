@@ -1,9 +1,11 @@
 import Hero from '@/components/Hero'
+import Solutions from '@/components/Solutions'
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full flex-col items-center md:max-w-3xl lg:max-w-5xl xl:max-w-[1440px]">
+    <main className="my-container mx-auto flex w-full flex-col items-center">
       <Hero />
+      <Solutions />
     </main>
   )
 }

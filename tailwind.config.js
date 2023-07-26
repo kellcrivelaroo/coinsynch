@@ -52,8 +52,14 @@ module.exports = {
         900: '#3b0c0e',
       },
       white: '#ffffff',
+      black: '#000000',
       text: '#5D6670',
       table: '#fbfbfb',
+    },
+    extend: {
+      screens: {
+        '2xl': '1440px',
+      },
     },
   },
   plugins: [],
