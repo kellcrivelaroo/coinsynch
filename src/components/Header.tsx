@@ -6,11 +6,11 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header
-      className="lg:grid-row-1 mx-auto grid max-w-[1440px] grid-cols-2 grid-rows-[1fr_auto] shadow-md lg:grid-cols-[auto]
+      className="lg:grid-row-1 grid-cols-auto mx-auto grid max-w-[1440px] grid-rows-[1fr_auto] shadow-md lg:grid-cols-[auto]
     lg:shadow-none"
     >
       {/* Logo and Nav (tablet+ only) */}
-      <div className="flex h-14 items-center gap-10 pl-4 md:pl-12 xl:pl-2 2xl:pl-0">
+      <div className="flex h-14 items-center gap-10 pl-4 md:pl-0">
         <Link href="/">
           <Image
             src={logo}
@@ -46,7 +46,7 @@ export default function Header() {
       </div>
 
       {/* Menu */}
-      <div className="items center flex justify-end pr-4 md:pr-12 lg:col-start-3 xl:pr-2 2xl:pr-0">
+      <div className="items center flex justify-end pr-4 md:pr-0 lg:col-start-3">
         {/* Mobile */}
         <button className="block md:hidden">
           <Image
