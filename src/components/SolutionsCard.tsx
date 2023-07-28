@@ -9,8 +9,8 @@ interface SolutionsCardProps {
 export default function SolutionsCard({ icon, alt }: SolutionsCardProps) {
   return (
     <div
-      className="w-[208px] cursor-default space-y-4 rounded-md bg-white p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-md
-    md:w-[280px]"
+      className="min-w-[208px] cursor-default space-y-4 rounded-md bg-white p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-md
+    md:w-[280px] lg:w-[240px] xl:w-[280px]"
     >
       <Image src={icon} alt={alt} width={64} className="w-10 md:w-16" />
       <div>

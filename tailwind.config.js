@@ -58,7 +58,27 @@ module.exports = {
     },
     extend: {
       screens: {
+        '2xs': '374px',
         '2xl': '1440px',
+      },
+      keyframes: {
+        float: {
+          '0%': { transform: 'translateY(8px)' },
+          '50%': { transform: 'translateY(0px)' },
+          '100%': { transform: 'translateY(8px)' },
+        },
+        marquee: {
+          '0%': { left: '0' },
+          '100%': { left: '-170%' },
+        },
+      },
+      animation: {
+        'float-1': 'float 1s ease-in-out infinite',
+        'float-1.5': 'float 1.5s ease-in-out infinite',
+        'float-2': 'float 2s ease-in-out infinite',
+        'float-2.5': 'float 2.5s ease-in-out infinite',
+
+        marquee: 'marquee 8s linear infinite',
       },
     },
   },

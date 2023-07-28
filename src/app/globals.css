@@ -2,9 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.my-container {
-  @apply 2xl:max-w-[1400px] xl:max-w-[1240px] lg:max-w-[1000px]
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+
+  .cryptoTable {
+    @apply grid grid-cols-[1fr_auto] md:grid-cols-[60px_2fr_1fr_1fr_80px] lg:grid-cols-[100px_2fr_1fr_1fr_100px] 
+  }
+
+  .defaultContainer {
+    @apply 2xl:max-w-[1400px] xl:max-w-[1240px] lg:max-w-[1000px] mx-auto
+  }
 }
+
+
 
 .default-button {
   @apply bg-primary-500 rounded-full px-4 py-2 text-white min-w-[100px] hover:bg-primary-400 transition-colors
