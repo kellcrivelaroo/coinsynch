@@ -21,7 +21,7 @@ export default function Hero() {
           </p>
 
           <button
-            className="default-button mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
+            className="defaultButton mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
           md:text-base lg:mb-20 lg:w-[276px]"
           >
             sign up now
@@ -52,7 +52,7 @@ export default function Hero() {
 
         {/* Tablet+ */}
         <div className="hidden w-full basis-1/2 md:flex">
-          {/* <Carousel /> */}
+          <Carousel />
         </div>
       </div>
       {/* Waves */}

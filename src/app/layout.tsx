@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto_Flex as robotoFlex } from 'next/font/google'
 import { CoinsContextProvider } from '@/contexts/coins-context'
+import Footer from '@/components/Footer'
 
 const roboto = robotoFlex({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <CoinsContextProvider>
           <Header />
           {children}
+          <Footer />
         </CoinsContextProvider>
       </body>
     </html>

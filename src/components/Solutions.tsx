@@ -29,7 +29,10 @@ const cards = [
 
 export default function Solutions() {
   return (
-    <section className="w-[100vw] bg-gradient-to-b from-white to-secondary-200">
+    <section
+      id="about"
+      className="w-[100vw] bg-gradient-to-b from-white to-secondary-200"
+    >
       <div
         className="defaultContainer flex w-full flex-col items-center overflow-hidden py-14 md:overflow-visible md:py-20
         lg:flex-row-reverse lg:gap-4 lg:px-0 lg:py-32 2xl:gap-12"

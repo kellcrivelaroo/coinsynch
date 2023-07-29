@@ -17,8 +17,8 @@ export default async function Header() {
 
   return (
     <header
-      className="defaultContainer lg:grid-row-1 grid-cols-auto mx-auto grid grid-rows-[1fr_auto] text-sm shadow-md
-    lg:grid-cols-[auto_1fr_auto] lg:shadow-none"
+      className="grid-cols-auto mx-auto grid grid-rows-[1fr_auto] text-sm shadow-md md:w-full md:px-2
+      lg:max-w-[1000px] lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1 lg:shadow-none xl:max-w-[1240px] 2xl:max-w-[1400px]"
     >
       {/* Logo and Nav (tablet+ only) */}
       <div className="flex h-14 items-center gap-10 pl-4 md:pl-0">
@@ -34,13 +34,13 @@ export default async function Header() {
         {/* Tablet+ */}
         <nav className="hidden gap-6 md:flex">
           <Link
-            href="/about"
+            href="#about"
             className="transition-colors hover:text-primary-500"
           >
             About us
           </Link>
           <Link
-            href="/top-cryptos"
+            href="#top-cryptos"
             className="transition-colors hover:text-primary-500"
           >
             Top Cryptos
@@ -75,7 +75,7 @@ export default async function Header() {
           <button className="transition-colors hover:text-primary-500">
             Sign in
           </button>
-          <button className="default-button">Sign up</button>
+          <button className="defaultButton">Sign up</button>
         </div>
       </div>
     </header>

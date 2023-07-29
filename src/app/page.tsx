@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import Solutions from '@/components/Solutions'
+import Subscription from '@/components/Subscription'
 import TopCryptos from '@/components/TopCryptos'
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Solutions />
       <TopCryptos />
+      <Subscription />
     </main>
   )
 }
