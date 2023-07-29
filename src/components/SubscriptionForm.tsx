@@ -31,7 +31,7 @@ export default function SubscriptionForm() {
       console.log(data)
       setSuccess(true)
       setIsLoading(false)
-      // reset({ email: '' })
+      reset({ email: '' })
     }, 600)
   }
 
