@@ -1,6 +1,6 @@
+import arrow from '@/../public/arrow-right-icon.svg'
 import Image from 'next/image'
 import Carousel from './Carousel'
-import arrow from '@/../public/arrow-right-icon.svg'
 
 export default function Hero() {
   return (

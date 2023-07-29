@@ -1,12 +1,13 @@
 'use client'
+import { useCoinsData } from '@/contexts/coins-context'
 import { useEffect, useState } from 'react'
 import TopCryptoTableRow from './TopCryptoTableRow'
-import { useCoinsData } from '@/contexts/coins-context'
+import { CoinDataProps } from '@/lib/types'
 
 export default function TopCryptoTable() {
   const { coinsData } = useCoinsData()
   const [isExpanded, setIsExpanded] = useState(false)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<CoinDataProps[]>([])
 
   useEffect(() => {
     isExpanded ? setData(coinsData) : setData(coinsData.slice(0, 5))

@@ -1,7 +1,7 @@
-import Hero from '@/components/Hero'
-import Solutions from '@/components/Solutions'
-import Subscription from '@/components/Subscription'
-import TopCryptos from '@/components/TopCryptos'
+import Hero from '@/components/Hero/Hero'
+import Solutions from '@/components/Solutions/Solutions'
+import Subscription from '@/components/Subscription/Subscription'
+import TopCryptos from '@/components/TopCryptos/TopCryptos'
 
 export default function Home() {
   return (
