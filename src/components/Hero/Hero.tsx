@@ -1,6 +1,7 @@
 import arrow from '@/../public/arrow-right-icon.svg'
 import Image from 'next/image'
 import Carousel from './Carousel'
+import SignInDialog from '../SignIn/SignInDialog'
 
 export default function Hero() {
   return (
@@ -20,13 +21,15 @@ export default function Hero() {
             porttitor
           </p>
 
-          <button
-            className="defaultButton mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
+          <SignInDialog>
+            <button
+              className="defaultButton mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
           md:text-base lg:mb-20 lg:w-[276px]"
-          >
-            sign up now
-            <Image src={arrow} alt="arrow" width={12} />
-          </button>
+            >
+              sign up now
+              <Image src={arrow} alt="arrow" width={12} />
+            </button>
+          </SignInDialog>
 
           <div className="space-x-4 text-primary-500 md:space-x-6 lg:space-x-8 lg:text-lg">
             <button

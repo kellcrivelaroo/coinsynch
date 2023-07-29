@@ -28,9 +28,8 @@
     transition-colors disabled:opacity-70
   }
 
-  .defaultInput {
-    @apply mb-6 h-10 text-primary-800 p-4 rounded-md shadow-lg focus:outline-none disabled:opacity-80
-    transition-colors duration-300 focus:bg-primary-100
+  .signInput {
+    @apply h-12 w-full rounded-md border border-secondary-300 pl-10 outline-none focus:border-secondary-400
   }
 }
 
@@ -125,3 +124,48 @@
   line-height: 1.3;
 }
 
+
+/* Dialog classes from radix.ui */
+.DialogOverlay {
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  animation: contentShow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent:focus {
+  outline: none;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

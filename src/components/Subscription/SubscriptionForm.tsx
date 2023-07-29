@@ -1,13 +1,14 @@
 'use client'
+import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm, SubmitHandler } from 'react-hook-form'
 
 import spinner from '@/../public/spinner-icon.svg'
 
 import { subscriptionFormSchema } from '@/lib/schemas'
+import FormErrorMessage from '../FormErrorMessage'
 import ConfirmationToast from './ConfirmationToast'
 
 type SubscriptionFormType = z.infer<typeof subscriptionFormSchema>
@@ -32,7 +33,7 @@ export default function SubscriptionForm() {
       setSuccess(true)
       setIsLoading(false)
       reset({ email: '' })
-    }, 600)
+    }, 2000)
   }
 
   return (
@@ -40,21 +41,20 @@ export default function SubscriptionForm() {
       className="flex basis-1/2 flex-col lg:w-[384px] lg:basis-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <label htmlFor="email" className={`mb-2`}>
+      <label htmlFor="email" className="mb-2">
         Email
       </label>
-      <input
-        className={`defaultInput ${
-          errors?.email?.message && 'focus:bg-quartenary-200/70'
-        }`}
-        disabled={isLoading}
-        {...register('email')}
-      />
-      {errors.email && (
-        <span className="-mt-6 mb-1 ml-2 text-sm text-quartenary-700">
-          {errors.email.message}
-        </span>
-      )}
+      <div className="mb-6">
+        <input
+          className={`h-10 w-full rounded-md p-4 text-primary-800 shadow-lg
+          transition-colors duration-300 focus:bg-primary-100 focus:outline-none disabled:opacity-80 ${
+            errors.email?.message && 'focus:bg-quartenary-100'
+          }`}
+          disabled={isLoading}
+          {...register('email')}
+        />
+        <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+      </div>
 
       <button
         type="submit"
