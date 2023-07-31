@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation'
 
 type SignInFormType = z.infer<typeof signInFormSchema>
 
-export default function SignInForm() {
+export default function SignInForm({ close }: { close: () => void }) {
   const [passwordShown, setPasswordShown] = useState(false)
   const router = useRouter()
 
@@ -29,11 +29,15 @@ export default function SignInForm() {
   })
 
   const onSubmit: SubmitHandler<SignInFormType> = () => {
+    close()
     router.push('/dashboard')
   }
 
   return (
-    <form className="flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex w-full flex-col overflow-hidden"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       {/* E-mail Input */}
       <div className="relative mb-6">
         <Image
@@ -55,7 +59,6 @@ export default function SignInForm() {
 
         <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
       </div>
-
       {/* Password Input */}
       <div className="relative mb-2">
         <Image
@@ -82,22 +85,20 @@ export default function SignInForm() {
           onClick={() => {
             setPasswordShown((current) => !current)
           }}
+          tabIndex={-1}
         >
           <Image src={eye} alt="eye" width={16} height={16} />
         </button>
       </div>
-
       <button
         className="mb-4 self-end text-xs text-secondary-500 hover:text-primary-500"
         type="button"
       >
         Forgot password?
       </button>
-      {/* <Dialog.Close asChild> */}
       <button type="submit" className="defaultButton mb-4">
         Sign in
       </button>
-      {/* </Dialog.Close> */}
     </form>
   )
 }

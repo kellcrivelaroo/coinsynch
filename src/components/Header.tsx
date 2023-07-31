@@ -4,6 +4,7 @@ import { api } from '@/lib/axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import Marquee from './Marquee'
+import SignInDialog from './SignInAndUp/SignInDialog'
 
 export default async function Header() {
   const data = await api
@@ -72,10 +73,14 @@ export default async function Header() {
 
         {/* Tablet+ */}
         <div className="hidden items-center justify-end gap-6 pl-10 md:flex">
-          <button className="transition-colors hover:text-primary-500">
-            Sign in
-          </button>
-          <button className="defaultButton">Sign up</button>
+          <SignInDialog>
+            <button className="transition-colors hover:text-primary-500">
+              Sign in
+            </button>
+          </SignInDialog>
+          <SignInDialog signUpMode={true}>
+            <button className="defaultButton">Sign up</button>
+          </SignInDialog>
         </div>
       </div>
     </header>

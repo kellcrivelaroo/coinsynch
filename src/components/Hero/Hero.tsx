@@ -1,7 +1,7 @@
 import arrow from '@/../public/arrow-right-icon.svg'
 import Image from 'next/image'
-import Carousel from './Carousel'
-import SignInDialog from '../SignIn/SignInDialog'
+// import Carousel from './Carousel'
+import SignInDialog from '../SignInAndUp/SignInDialog'
 
 export default function Hero() {
   return (
@@ -21,7 +21,7 @@ export default function Hero() {
             porttitor
           </p>
 
-          <SignInDialog>
+          <SignInDialog signUpMode={true}>
             <button
               className="defaultButton mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
           md:text-base lg:mb-20 lg:w-[276px]"
@@ -55,7 +55,7 @@ export default function Hero() {
 
         {/* Tablet+ */}
         <div className="hidden w-full basis-1/2 md:flex">
-          <Carousel />
+          {/* <Carousel /> */}
         </div>
       </div>
       {/* Waves */}
