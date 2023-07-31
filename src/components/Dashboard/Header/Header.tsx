@@ -1,20 +1,16 @@
 import logo from '@/../public/coinsynch-logo.svg'
-import menu from '@/../public/menu-icon.svg'
 import Image from 'next/image'
 import Avatar from './Avatar'
+import MenuButton from './MenuButton'
 
 export default function Header() {
   return (
-    <header className="flex h-14 items-center justify-between px-6 shadow-lg shadow-[#4d4d4d1a] md:h-[60px] md:px-10 lg:h-16">
+    <header
+      className=" z-30 flex h-14 items-center justify-between bg-white px-6 shadow-lg shadow-[#4d4d4d1a] 
+    md:h-[60px] md:px-10 lg:h-16"
+    >
       <div className="flex basis-1/3 items-center lg:hidden">
-        <button>
-          <Image
-            src={menu}
-            width={40}
-            alt="CoinSynch Logo"
-            className="h-6 w-fit"
-          />
-        </button>
+        <MenuButton />
       </div>
 
       <div className="flex basis-1/3 justify-center  lg:justify-start">
