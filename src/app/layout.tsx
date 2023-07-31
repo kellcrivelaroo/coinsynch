@@ -1,9 +1,7 @@
-import Header from '@/components/Header'
-import './globals.css'
+import { CoinsContextProvider } from '@/contexts/coins-context'
 import type { Metadata } from 'next'
 import { Roboto_Flex as robotoFlex } from 'next/font/google'
-import { CoinsContextProvider } from '@/contexts/coins-context'
-import Footer from '@/components/Footer'
+import './globals.css'
 
 const roboto = robotoFlex({ subsets: ['latin'] })
 
@@ -21,11 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`overflow-x-hidden text-text ${roboto.className}`}>
-        <CoinsContextProvider>
-          <Header />
-          {children}
-          <Footer />
-        </CoinsContextProvider>
+        <CoinsContextProvider>{children}</CoinsContextProvider>
       </body>
     </html>
   )
