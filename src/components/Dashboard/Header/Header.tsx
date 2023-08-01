@@ -2,8 +2,11 @@ import logo from '@/../public/coinsynch-logo.svg'
 import Image from 'next/image'
 import Avatar from './Avatar'
 import MenuButton from './MenuButton'
+import { getUserInfo } from '@/lib/utils'
 
-export default function Header() {
+export default async function Header() {
+  const user = await getUserInfo()
+
   return (
     <header
       className=" z-30 flex h-14 items-center justify-between bg-white px-6 shadow-lg shadow-[#4d4d4d1a] 
@@ -13,7 +16,7 @@ export default function Header() {
         <MenuButton />
       </div>
 
-      <div className="flex basis-1/3 justify-center  lg:justify-start">
+      <div className="flex basis-1/3 justify-center lg:justify-start">
         <Image
           src={logo}
           width={124}
@@ -23,7 +26,7 @@ export default function Header() {
       </div>
 
       <div className="flex basis-1/3 justify-end ">
-        <Avatar />
+        <Avatar user={user} />
       </div>
     </header>
   )

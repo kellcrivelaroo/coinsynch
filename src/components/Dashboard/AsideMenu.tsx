@@ -96,8 +96,8 @@ export default function AsideMenu() {
       <div
         id="portal"
         data-open={isMenuOpen}
-        className="pointer-events-none h-full w-full backdrop-blur-sm transition-colors 
-        data-[open=true]:pointer-events-auto data-[open=true]:bg-black/30 lg:hidden"
+        className="pointer-events-none h-full w-full transition-colors data-[open=true]:pointer-events-auto 
+        data-[open=true]:bg-black/30 data-[open=true]:backdrop-blur-sm lg:hidden"
         onClick={toggleMenu}
       />
     </div>

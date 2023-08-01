@@ -1,20 +1,13 @@
 import logo from '@/../public/coinsynch-logo.svg'
 import menu from '@/../public/menu-icon.svg'
-import { api } from '@/lib/axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import Marquee from './Marquee'
 import SignInDialog from './SignInAndUp/SignInDialog'
+import { getCoinData } from '@/lib/utils'
 
 export default async function Header() {
-  const data = await api
-    .get('/coins')
-    .then((response) => {
-      return response.data
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+  const data = await getCoinData()
 
   return (
     <header

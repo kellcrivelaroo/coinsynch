@@ -1,23 +1,38 @@
 'use client'
-import Image from 'next/image'
-import avatar from '@/../public/avatar.png'
-import logout from '@/../public/logout-icon.svg'
 import chevron from '@/../public/chevron-icon.svg'
+import logout from '@/../public/logout-icon.svg'
+import Image from 'next/image'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
-export default function Avatar() {
+import { UserDataType } from '@/lib/types'
+import { useRouter } from 'next/navigation'
+import { useDashboardContext } from '@/contexts/dashboard-context'
+import { useEffect } from 'react'
+
+export default function Avatar({ user }: { user: UserDataType }) {
+  const { setUser } = useDashboardContext()
+  const router = useRouter()
+
+  useEffect(() => {
+    setUser(user)
+  }, [])
+
+  const handleLogout = () => {
+    router.push('/')
+  }
+
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="flex items-center justify-end gap-1">
+      <DropdownMenu.Trigger className="flex items-center justify-end gap-2">
         <Image
-          src={avatar}
+          src={user.avatar_url}
           alt="avatar"
           width={32}
           height={32}
           className="w-6 md:w-8"
         />
-        <span className="hidden md:block">Aulus</span>
+        <span className="hidden md:block">{user.name}</span>
         <Image src={chevron} alt="chevron" width={12} height={12} />
       </DropdownMenu.Trigger>
 
@@ -28,7 +43,7 @@ export default function Avatar() {
           align="end"
           arrowPadding={0}
         >
-          <button className="flex items-center gap-4">
+          <button className="flex items-center gap-4" onClick={handleLogout}>
             <Image
               src={logout}
               alt="logout"

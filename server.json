@@ -284,5 +284,22 @@
       "roi": null,
       "last_updated": "2023-07-27T20:01:44.127Z"
   }
-]
+],
+    "users": [
+        {
+            "id": 1,
+            "name": "Kell",
+            "avatar_url": "https://github.com/kellcrivelaroo.png?size=80",
+            "wallet": [
+                {
+                    "id": "bitcoin",
+                    "shares": 1.2
+                },
+                {
+                    "id": "ethereum",
+                    "shares": 3
+                }
+            ]
+        }
+    ]
 }

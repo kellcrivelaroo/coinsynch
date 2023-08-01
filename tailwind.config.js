@@ -55,9 +55,7 @@ module.exports = {
       black: '#000000',
       text: '#5D6670',
       table: '#fbfbfb',
-      gray: {
-        100: '#f6f6f6',
-      },
+      gray: '#f6f6f6',
     },
     extend: {
       screens: {
