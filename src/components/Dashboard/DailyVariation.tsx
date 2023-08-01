@@ -14,8 +14,8 @@ export default function DailyVariation({ coinInfo }: DailyVariationProps) {
 
   return (
     <section
-      className="flex h-full min-h-[160px] w-full flex-col justify-between overflow-hidden rounded-lg bg-white 
-    shadow-lg md:min-h-[112px] md:flex-row"
+      className="flex min-h-full w-full basis-1/2 flex-col justify-between overflow-hidden rounded-lg bg-white
+    shadow-lg md:flex-row"
     >
       <div className="flex h-fit flex-col items-start gap-2 p-2">
         <span className="text-xs text-secondary-500 md:mb-2">

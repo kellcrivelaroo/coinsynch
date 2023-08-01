@@ -36,12 +36,13 @@ export default function AsideMenu() {
   const { isMenuOpen, toggleMenu } = useDashboardContext()
 
   return (
-    <div className="pointer-events-none fixed flex h-full w-screen">
+    <div className="pointer-events-none fixed top-14 z-30 flex h-full w-screen md:top-[60px] lg:bottom-16 lg:top-16">
       <aside
         data-open={isMenuOpen}
-        className="pointer-events-auto h-full overflow-hidden border-t border-secondary-300 bg-white transition-all
+        className="pointer-events-auto h-full overflow-hidden border-y border-secondary-300 bg-white transition-all
         data-[open=false]:min-w-0 data-[open=true]:min-w-[224px] data-[open=false]:max-w-0 data-[open=true]:max-w-[224px]
-        md:data-[open=true]:min-w-[240px] md:data-[open=true]:max-w-[240px] lg:min-w-[86px] lg:data-[open=false]:min-w-[86px]"
+        md:data-[open=true]:min-w-[240px] md:data-[open=true]:max-w-[240px] lg:min-w-[86px] lg:data-[open=false]:min-w-[86px]
+        lg:data-[open=true]:min-w-[86px]"
       >
         <nav className="whitespace-nowrap px-6 py-10">
           <ul className="mb-10 flex flex-col gap-8 md:mb-20">

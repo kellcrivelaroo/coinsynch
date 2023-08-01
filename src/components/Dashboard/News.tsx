@@ -1,8 +1,8 @@
 export default function News() {
   return (
     <section
-      className="flex min-h-[160px] w-full flex-col justify-between overflow-hidden rounded-lg bg-white 
-    shadow-lg md:min-h-[112px] md:flex-row"
+      className="flex min-h-full basis-1/2 flex-col justify-between overflow-hidden rounded-lg bg-white
+    shadow-lg md:flex-row"
     >
       <div className="flex h-fit flex-col items-start gap-2 p-2 md:basis-3/5 md:gap-1 md:p-4">
         <span className="text-xs font-bold">{`NFT's NEWS`}</span>

@@ -9,7 +9,7 @@ export default async function Header() {
 
   return (
     <header
-      className=" z-30 flex h-14 items-center justify-between bg-white px-6 shadow-lg shadow-[#4d4d4d1a] 
+      className="fixed z-30 flex h-14 w-full items-center justify-between bg-white px-6 shadow-lg shadow-[#4d4d4d1a] 
     md:h-[60px] md:px-10 lg:h-16"
     >
       <div className="flex basis-1/3 items-center lg:hidden">
