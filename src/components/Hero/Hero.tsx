@@ -12,7 +12,7 @@ export default function Hero() {
       >
         <div className="flex w-full gap-16">
           <div className="z-10 flex flex-col items-center text-center md:basis-1/2 md:items-start md:text-start">
-            <h1 className="mb-2 text-xl font-bold leading-tight text-primary-500 md:mb-4 md:text-[32px] lg:text-5xl">
+            <h1 className="mb-2 text-xl font-bold leading-tight text-primary-500 md:mb-4 md:text-3xl lg:text-5xl">
               Lorem ipsum dolor sit amet, consectetur
             </h1>
 

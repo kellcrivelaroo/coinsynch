@@ -42,7 +42,7 @@ export default function Solutions() {
           <span className="mb-1 text-base font-bold text-primary-500 lg:text-xl">
             Lorem ipsum
           </span>
-          <h2 className="mb-4 text-2xl font-bold md:text-[32px] lg:text-[40px]">
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl lg:text-[40px]">
             Lorem ipsum
           </h2>
           <p className="mb-10 text-sm leading-relaxed md:text-base lg:mr-10 2xl:mr-40 2xl:w-[400px]">

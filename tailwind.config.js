@@ -58,6 +58,9 @@ module.exports = {
       gray: '#f6f6f6',
     },
     extend: {
+      fontSize: {
+        '3xl': '2rem',
+      },
       screens: {
         '2xs': '374px',
         '2xl': '1440px',

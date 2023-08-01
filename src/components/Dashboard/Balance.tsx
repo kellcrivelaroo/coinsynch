@@ -36,17 +36,31 @@ export default function Balance({ coinsData }: BalanceProps) {
 
   return (
     <section className="flex w-full justify-between overflow-hidden rounded-lg bg-white shadow-lg">
-      <div className="flex items-center px-4 py-2">
+      <div className="flex items-center gap-2 px-4 py-2 lg:gap-4 lg:p-6">
         <div className="rounded-full bg-primary-100 p-2">
-          <Image src={balanceIcon} width={20} alt="balance" className="" />
+          <Image
+            src={balanceIcon}
+            width={40}
+            alt="balance"
+            className="w-5 md:w-8 lg:w-10"
+          />
         </div>
-        <div className="ml-2 flex flex-col leading-tight">
-          <span>Balance</span>
-          <span className="text-xs text-secondary-500">in US$</span>
+
+        <div className="flex flex-col leading-tight md:w-[10rem] md:flex-row md:flex-wrap md:items-center md:text-xl">
+          <span>Balance&nbsp;</span>
+          <span className="text-xs text-secondary-500 md:text-xl md:text-text">
+            in US$
+          </span>
+          <span className="hidden text-sm text-secondary-500 md:block">
+            (approximately)
+          </span>
         </div>
       </div>
 
-      <div className="flex items-center bg-primary-100 px-6 py-3 text-base font-bold">
+      <div
+        className="flex items-center justify-center bg-primary-100 px-6 py-3 text-base font-bold md:basis-2/5 md:text-2xl
+      lg:basis-1/2 lg:text-3xl"
+      >
         {formatCurrency(balance)}
       </div>
     </section>
