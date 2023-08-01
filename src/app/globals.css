@@ -31,6 +31,10 @@
   .signInput {
     @apply h-12 w-full rounded-md border border-secondary-300 pl-10 outline-none focus:border-secondary-400
   }
+
+  body {
+    @apply bg-gray
+  }
 }
 
 /* Toast classes I took directly from the radix.ui documentation and adapted for my use case */
@@ -302,8 +306,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-body {
-  background-color: #f6f6f6;
 }

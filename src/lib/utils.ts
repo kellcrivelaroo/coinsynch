@@ -1,5 +1,4 @@
 import { api } from './axios'
-import { UserDataType } from './types'
 
 export const formatCurrency = (value: number): string => {
   const dolarFormat = new Intl.NumberFormat('en-US', {
@@ -8,6 +7,12 @@ export const formatCurrency = (value: number): string => {
   })
 
   return dolarFormat.format(value)
+}
+
+export const formatChangeInPercentage = (value: number, fixed = 3): string => {
+  const positive = value >= 0 ? '+' : ''
+  const formatedValue = positive + value.toFixed(fixed) + '%'
+  return formatedValue
 }
 
 export const getCoinData = async () => {

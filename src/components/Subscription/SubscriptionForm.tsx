@@ -29,7 +29,6 @@ export default function SubscriptionForm() {
   const onSubmit: SubmitHandler<SubscriptionFormType> = (data) => {
     setIsLoading(true)
     setTimeout(() => {
-      console.log(data)
       setSuccess(true)
       setIsLoading(false)
       reset({ email: '' })

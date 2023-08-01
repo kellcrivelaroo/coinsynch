@@ -40,15 +40,11 @@ export default function SignUpForm({ close }: { close: () => void }) {
     <form
       className="flex w-full flex-col overflow-hidden"
       onSubmit={handleSubmit(onSubmit)}
-      onClick={() => {
-        console.log()
-      }}
     >
       {/* Name Input */}
       <div
         className="relative mb-6"
         onClick={() => {
-          console.log(checked)
           setChecked((current) => !current)
         }}
       >
@@ -165,7 +161,6 @@ export default function SignUpForm({ close }: { close: () => void }) {
             className="relative flex h-4 min-w-[16px] appearance-none items-center justify-center rounded border-2
             border-primary-500 text-sm"
             onClick={() => {
-              console.log(checked)
               setChecked((current) => !current)
             }}
             {...register('terms')}
