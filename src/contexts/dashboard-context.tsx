@@ -10,20 +10,40 @@ interface ProviderProps {
 type DashboardContextType = {
   isMenuOpen: boolean
   toggleMenu: () => void
-  user: UserDataType | null
+  user: UserDataType
   setUser: (user: UserDataType) => void
 }
 
 const DashboardContext = createContext<DashboardContextType>({
   isMenuOpen: false,
   toggleMenu: () => {},
-  user: null,
+  user: {
+    id: 0,
+    name: '',
+    avatar_url: '',
+    wallet: [
+      {
+        id: '',
+        shares: 0,
+      },
+    ],
+  },
   setUser: () => {},
 })
 
 export function DashboardContextProvider({ children }: ProviderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-  const [user, setUser] = useState<UserDataType | null>(null)
+  const [user, setUser] = useState<UserDataType>({
+    id: 0,
+    name: '',
+    avatar_url: '',
+    wallet: [
+      {
+        id: '',
+        shares: 0,
+      },
+    ],
+  })
 
   const toggleMenu = () => {
     setIsMenuOpen((current) => !current)

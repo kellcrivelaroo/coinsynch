@@ -1,5 +1,5 @@
 'use client'
-import { CoinDataProps } from '@/lib/types'
+import { CoinDataType } from '@/lib/types'
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -11,7 +11,7 @@ import chevron from '@/../public/chevron-prim-300.svg'
 import { formatCurrency } from '@/lib/utils'
 
 interface TopCryptoTableRowProps {
-  coin: CoinDataProps
+  coin: CoinDataType
   index: number
 }
 

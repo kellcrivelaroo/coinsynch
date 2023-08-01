@@ -23,6 +23,8 @@ export default function Avatar({ user }: { user: UserDataType }) {
   }
 
   return (
+    // Still need to deal with the layout shift that happens when opening the dropdownmenu with the fixed header
+
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="flex items-center justify-end gap-2">
         <Image
@@ -38,7 +40,8 @@ export default function Avatar({ user }: { user: UserDataType }) {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="DropdownMenuContent rounded bg-white px-6 py-4 text-secondary-500 drop-shadow-[0_0_10px_rgba(0,0,0,0.08)]"
+          className={`DropdownMenuContent z-50 rounded bg-white px-6 py-4 text-secondary-500
+          drop-shadow-[0_0_10px_rgba(0,0,0,0.08)]`}
           sideOffset={4}
           align="end"
           arrowPadding={0}

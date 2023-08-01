@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 'use client'
 import { ReactNode, createContext, useContext, useState } from 'react'
-import { CoinDataProps } from '@/lib/types'
+import { CoinDataType } from '@/lib/types'
 
 interface ProviderProps {
   children: ReactNode
 }
 
 type CoinsDataContextType = {
-  coinsData: CoinDataProps[]
-  setCoinsData: (coinsData: CoinDataProps[]) => void
+  coinsData: CoinDataType[]
+  setCoinsData: (coinsData: CoinDataType[]) => void
 }
 
 const CoinsDataContext = createContext<CoinsDataContextType>({
@@ -18,7 +18,7 @@ const CoinsDataContext = createContext<CoinsDataContextType>({
 })
 
 export function CoinsContextProvider({ children }: ProviderProps) {
-  const [coinsData, setCoinsData] = useState<CoinDataProps[]>([])
+  const [coinsData, setCoinsData] = useState<CoinDataType[]>([])
 
   return (
     <CoinsDataContext.Provider value={{ coinsData, setCoinsData }}>

@@ -2,12 +2,12 @@
 import { useCoinsData } from '@/contexts/coins-context'
 import { useEffect, useState } from 'react'
 import TopCryptoTableRow from './TopCryptoTableRow'
-import { CoinDataProps } from '@/lib/types'
+import { CoinDataType } from '@/lib/types'
 
 export default function TopCryptoTable() {
   const { coinsData } = useCoinsData()
   const [isExpanded, setIsExpanded] = useState(false)
-  const [data, setData] = useState<CoinDataProps[]>([])
+  const [data, setData] = useState<CoinDataType[]>([])
 
   useEffect(() => {
     isExpanded ? setData(coinsData) : setData(coinsData.slice(0, 5))

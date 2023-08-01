@@ -300,6 +300,12 @@
                     "shares": 3
                 }
             ]
+        },
+        {
+            "id": 2,
+            "name": "Tell",
+            "avatar_url": "https://github.com/kellcrivelaroo.png?size=80",
+            "wallet": []
         }
     ]
 }

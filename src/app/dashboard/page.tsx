@@ -1,10 +1,10 @@
 import AsideMenu from '@/components/Dashboard/AsideMenu'
 import Balance from '@/components/Dashboard/Balance'
 import DailyVariation from '@/components/Dashboard/DailyVariation'
+import Footer from '@/components/Dashboard/Footer'
 import Header from '@/components/Dashboard/Header/Header'
 import News from '@/components/Dashboard/News'
-import Wallet from '@/components/Dashboard/Wallet'
-import Footer from '@/components/Dashboard/Footer'
+import Wallet from '@/components/Dashboard/Wallet/Wallet'
 import { getCoinData } from '@/lib/utils'
 
 export default async function Dashboard() {
@@ -23,8 +23,8 @@ export default async function Dashboard() {
         <Balance coinsData={coinsData} />
 
         <div
-          className="flex h-full min-h-[160px] w-full justify-between gap-4 2xs:min-h-[192px] md:min-h-[112px]
-        md:gap-6 lg:gap-8"
+          className="flex h-full min-h-[160px] w-full justify-between gap-4 2xs:min-h-[192px] md:min-h-[112px] md:gap-6
+        lg:gap-8 2xl:min-h-[140px]"
         >
           <DailyVariation coinInfo={coinsData[randomCoin]} />
           <News />
@@ -33,7 +33,7 @@ export default async function Dashboard() {
         <div className="h-[1px] bg-secondary-300 md:hidden" />
 
         <div className="lg:col-span-2">
-          <Wallet />
+          <Wallet coinsData={coinsData} />
         </div>
       </main>
       <Footer />

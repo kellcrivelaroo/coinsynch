@@ -3,35 +3,22 @@ import Image from 'next/image'
 import balanceIcon from '@/../public/balance-icon.svg'
 import { useDashboardContext } from '@/contexts/dashboard-context'
 import { useEffect, useState } from 'react'
-import { formatCurrency } from '@/lib/utils'
-import { CoinDataProps } from '@/lib/types'
+import { formatCurrency, getUserWallet } from '@/lib/utils'
+import { CoinDataType } from '@/lib/types'
 
 interface BalanceProps {
-  coinsData: Array<CoinDataProps>
+  coinsData: Array<CoinDataType>
 }
 
 export default function Balance({ coinsData }: BalanceProps) {
   const [balance, setBalance] = useState(0)
   const { user } = useDashboardContext()
 
-  const calculateTotalBalance = () => {
-    let totalBalance = 0
-    user?.wallet.forEach((wallet) => {
-      let coinValue = 0
-      for (let i = 0; i < coinsData.length; i++) {
-        if (coinsData[i].id === wallet.id) {
-          coinValue = coinsData[i].current_price
-          break
-        }
-      }
-      totalBalance += coinValue * wallet.shares
-    })
-    return totalBalance
-  }
-
   useEffect(() => {
-    const totalBalance = calculateTotalBalance()
-    setBalance(totalBalance)
+    if (user) {
+      const { totalBalance } = getUserWallet(user, coinsData)
+      setBalance(totalBalance)
+    }
   }, [user])
 
   return (

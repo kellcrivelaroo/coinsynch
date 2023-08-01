@@ -67,7 +67,7 @@ export default function AsideMenu() {
                         <Tooltip.Content
                           side="right"
                           sideOffset={12}
-                          className="TooltipContent hidden rounded bg-primary-500 px-6 py-2 text-white shadow-lg 
+                          className="TooltipContent z-50 hidden rounded bg-primary-500 px-6 py-2 text-white shadow-lg
                           shadow-black/10 lg:block"
                         >
                           {item.title}

@@ -1,4 +1,5 @@
 import { api } from './axios'
+import { CoinDataType, UserDataType, UserWalletInfoType } from './types'
 
 export const formatCurrency = (value: number): string => {
   const dolarFormat = new Intl.NumberFormat('en-US', {
@@ -36,4 +37,35 @@ export const getUserInfo = async () => {
     .catch((error) => {
       console.log(error)
     })
+}
+
+export const getUserWallet = (
+  user: UserDataType,
+  coinsData: Array<CoinDataType>,
+) => {
+  const userCoinsInfo: UserWalletInfoType = {
+    userId: user.id,
+    coinsInfo: [],
+    totalBalance: 0,
+  }
+  let total = 0
+
+  user.wallet.forEach((wallet) => {
+    let coinValue = 0
+    for (let i = 0; i < coinsData.length; i++) {
+      if (coinsData[i].id === wallet.id) {
+        // saves the coin info into the user's info
+        userCoinsInfo.coinsInfo.push({
+          ...coinsData[i],
+          shares: wallet.shares,
+        })
+        coinValue = coinsData[i].current_price
+        break
+      }
+    }
+    total += coinValue * wallet.shares
+  })
+
+  userCoinsInfo.totalBalance = total
+  return userCoinsInfo
 }

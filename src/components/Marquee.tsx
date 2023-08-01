@@ -1,11 +1,11 @@
 'use client'
 import { useCoinsData } from '@/contexts/coins-context'
-import { CoinDataProps } from '@/lib/types'
+import { CoinDataType } from '@/lib/types'
 import { formatCurrency } from '@/lib/utils'
 import { useEffect } from 'react'
 
 interface MarqueeProps {
-  coinsData: CoinDataProps[]
+  coinsData: CoinDataType[]
 }
 
 export default function Marquee({ coinsData }: MarqueeProps) {

@@ -9,8 +9,8 @@ export default async function Header() {
 
   return (
     <header
-      className="fixed z-30 flex h-14 w-full items-center justify-between bg-white px-6 shadow-lg shadow-[#4d4d4d1a] 
-    md:h-[60px] md:px-10 lg:h-16"
+      className="fixed bottom-0 top-0 z-30 flex h-14 w-full items-center justify-between overflow-x-auto bg-white px-6 
+      shadow-lg shadow-[#4d4d4d1a] md:h-[60px] md:px-10 lg:h-16"
     >
       <div className="flex basis-1/3 items-center lg:hidden">
         <MenuButton />

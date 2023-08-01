@@ -1,4 +1,4 @@
-export interface CoinDataProps {
+export type CoinDataType = {
   id: string
   symbol: string
   name: string
@@ -17,4 +17,14 @@ export type UserDataType = {
       shares: number
     },
   ]
+}
+
+export interface WalletInfo extends CoinDataType {
+  shares: number
+}
+
+export type UserWalletInfoType = {
+  userId: number
+  coinsInfo: WalletInfo[]
+  totalBalance: number
 }
