@@ -1,6 +1,7 @@
 'use client'
 import emptyWallet from '@/../../public/empty-wallet.svg'
 import plus from '@/../../public/plus-icon.svg'
+import load from '@/../../public/loading-icon.svg'
 import walletIcon from '@/../../public/wallet-icon.svg'
 
 import { useDashboardContext } from '@/contexts/dashboard-context'
@@ -23,8 +24,7 @@ export default function Wallet({ coinsData }: WalletProps) {
   const [walletInfo, setWalletInfo] = useState<Array<WalletInfo>>([])
   const [loading, setLoading] = useState(true)
 
-  // const windowSize = window.innerWidth
-  const windowSize = 1600
+  console.log(user)
 
   useEffect(() => {
     const { coinsInfo } = getUserWallet(user, coinsData)
@@ -57,7 +57,19 @@ export default function Wallet({ coinsData }: WalletProps) {
         </AddCryptoDialog>
       </header>
 
-      {walletInfo.length <= 0 ? (
+      {loading && (
+        <div className="flex min-h-[190px] items-center justify-center md:min-h-[308px]">
+          <Image
+            src={load}
+            alt="loading icon"
+            width={40}
+            height={40}
+            className="animate-spin"
+          />
+        </div>
+      )}
+
+      {!loading && walletInfo.length <= 0 && (
         <div
           className="flex min-h-[190px] items-center justify-center overflow-hidden rounded-lg bg-white shadow-lg 
       md:min-h-[308px] md:shadow-none"
@@ -77,29 +89,35 @@ export default function Wallet({ coinsData }: WalletProps) {
             <span className="text-sm">Add a crypto and start earning</span>
           </div>
         </div>
-      ) : windowSize <= 767 ? (
-        <div className="flex gap-4 md:hidden">
-          {walletInfo.map((coin, index) => {
-            return <CryptoCard key={index} coin={coin} />
-          })}
-        </div>
-      ) : (
-        <table className="hidden min-w-full flex-col text-xs md:flex">
-          <thead
-            className={`w-full px-4 pb-2 text-secondary-500 ${
-              loading || !!walletInfo ? 'hidden' : 'walletTable'
-            }`}
-          >
-            <span className="">#</span>
-            <span>Crypto</span>
-            <span className="">Holdings</span>
-            <span>Change</span>
-            <span className="flex justify-center">Trade</span>
-          </thead>
-          {walletInfo.map((coin, index) => {
-            return <WalletTableRow key={index} index={index} coin={coin} />
-          })}
-        </table>
+      )}
+
+      {!loading && walletInfo.length > 0 && (
+        <>
+          <div className="flex gap-4 md:hidden">
+            {walletInfo.map((coin, index) => {
+              return <CryptoCard key={index} coin={coin} />
+            })}
+          </div>
+
+          <table className="hidden min-w-full flex-col text-xs md:flex">
+            <thead
+              className={`w-full px-4 pb-2 text-secondary-500 ${
+                loading ? 'hidden' : 'walletTable'
+              }`}
+            >
+              <span className="">#</span>
+              <span>Crypto</span>
+              <span className="">Holdings</span>
+              <span>Change</span>
+              <span className="flex justify-center">Trade</span>
+            </thead>
+            <tbody>
+              {walletInfo.map((coin, index) => {
+                return <WalletTableRow key={index} index={index} coin={coin} />
+              })}
+            </tbody>
+          </table>
+        </>
       )}
     </section>
   )

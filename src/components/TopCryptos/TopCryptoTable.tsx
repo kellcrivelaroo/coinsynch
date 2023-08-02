@@ -23,15 +23,17 @@ export default function TopCryptoTable() {
           <span>Change</span>
           <span className="hidden md:block">Trade</span>
         </thead>
-        {data.length > 0 ? (
-          data.map((coin, index) => {
-            return <TopCryptoTableRow key={index} coin={coin} index={index} />
-          })
-        ) : (
-          <tr className="flex w-full justify-center text-base">
-            No cryptos found.
-          </tr>
-        )}
+        <tbody className="flex flex-col">
+          {data.length > 0 ? (
+            data.map((coin, index) => {
+              return <TopCryptoTableRow key={index} coin={coin} index={index} />
+            })
+          ) : (
+            <tr className="flex w-full justify-center text-base">
+              No cryptos found.
+            </tr>
+          )}
+        </tbody>
       </table>
 
       <button

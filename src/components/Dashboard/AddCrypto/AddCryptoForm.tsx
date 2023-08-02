@@ -32,7 +32,7 @@ export default function AddCryptoForm({ closeDialog }: AddCryptoFormProps) {
     )[0]
 
     if (existingCoin) {
-      const remainingShares = existingCoin.shares - data.shares
+      const remainingShares = existingCoin.shares + data.shares
       const tmpWallet = user.wallet.filter((crypto) => crypto.id !== data.coin)
       tmpWallet.push({
         id: existingCoin.id,

@@ -33,24 +33,22 @@ export default function TransferCryptoForm({
   const selectedCoin = user.wallet.filter((crypto) => crypto.id === coin.id)[0]
 
   const onSubmit: SubmitHandler<TransferCryptoType> = (data) => {
-    if (data.shares > selectedCoin.shares) {
+    if (data.transfer === 'in') {
+      const newShares = selectedCoin.shares + data.shares
+      const userWallet = user.wallet.filter((crypto) => crypto.id !== coin.id)
+      userWallet.push({
+        id: selectedCoin.id,
+        shares: newShares,
+      })
+      setUser({
+        ...user,
+        wallet: [...userWallet],
+      })
+    } else if (data.shares > selectedCoin.shares && data.transfer === 'out') {
       setCustomValidation('Invalid number of shares')
     } else {
       setCustomValidation('')
-
-      if (data.transfer === 'in') {
-        const remainingShares = selectedCoin.shares + data.shares
-        const userWallet = user.wallet.filter((crypto) => crypto.id !== coin.id)
-        userWallet.push({
-          id: selectedCoin.id,
-          shares: remainingShares,
-        })
-        setUser({
-          ...user,
-          wallet: [...userWallet],
-        })
-        // a
-      } else if (data.transfer === 'out') {
+      if (data.transfer === 'out') {
         // remove intire selected crypto
         if (data.shares === selectedCoin.shares) {
           const userWallet = user.wallet.filter(
@@ -76,9 +74,8 @@ export default function TransferCryptoForm({
           })
         }
       }
-
-      closeDialog()
     }
+    closeDialog()
   }
 
   return (

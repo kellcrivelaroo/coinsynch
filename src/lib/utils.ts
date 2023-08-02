@@ -1,5 +1,5 @@
 import { chartApi, coinApi, userApi } from './axios'
-import { fakeChartData, fakeCoins } from './fake-data'
+import { fakeChartData, fakeCoins, fakeUser } from './fake-data'
 import { CoinDataType, UserDataType, UserWalletInfoType } from './types'
 
 export const formatCurrency = (value: number): string => {
@@ -24,7 +24,6 @@ export const getCoinData = async () => {
       return response.data
     })
     .catch(() => {
-      // console.log(error)
       return fakeCoins
     })
 }
@@ -47,13 +46,7 @@ export const getUserInfo = async () => {
       return response.data
     })
     .catch(() => {
-      // fake data
-      return {
-        id: 1,
-        name: 'Kell',
-        avatar_url: 'https://github.com/kellcrivelaroo.png?size=80',
-        wallet: [],
-      }
+      return fakeUser
     })
 }
 
