@@ -1,6 +1,6 @@
 import arrow from '@/../public/arrow-right-icon.svg'
 import Image from 'next/image'
-// import Carousel from './Carousel'
+import Carousel from './Carousel'
 import SignInDialog from '../SignInAndUp/SignInDialog'
 
 export default function Hero() {
@@ -56,7 +56,7 @@ export default function Hero() {
 
           {/* Tablet+ */}
           <div className="hidden w-full basis-1/2 md:flex">
-            {/* <Carousel /> */}
+            <Carousel />
           </div>
         </div>
       </section>

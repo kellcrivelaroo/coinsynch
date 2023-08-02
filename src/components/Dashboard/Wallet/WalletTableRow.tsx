@@ -2,6 +2,7 @@ import { WalletInfo } from '@/lib/types'
 import { formatChangeInPercentage, formatCurrency } from '@/lib/utils'
 import Image from 'next/image'
 import trade from '@/../../public/trade-icon.svg'
+import TransferCryptoDialog from '../TransferCrypto/TransferCryptoDialog'
 
 interface WalletTableRowProps {
   index: number
@@ -13,7 +14,9 @@ export default function WalletTableRow({ index, coin }: WalletTableRowProps) {
   const grayRow = index % 2 ? 'bg-secondary-100/50' : ''
 
   return (
-    <tr className={`walletTable h-16 items-center px-4 ${grayRow}`}>
+    <tr
+      className={`walletTable h-16 items-center px-4 hover:bg-secondary-100 ${grayRow}`}
+    >
       {/* Index */}
       <span className="to-secondary-500 text-sm">
         {(index + 1).toString().padStart(2, '0')}
@@ -37,9 +40,9 @@ export default function WalletTableRow({ index, coin }: WalletTableRowProps) {
         <span className=" text-base">
           {formatCurrency(coin.current_price * coin.shares)}
         </span>
-        <span className="text-primary-500">{`${
-          coin.shares
-        } ${coin.symbol.toUpperCase()}`}</span>
+        <span className="text-primary-500">{`${coin.shares.toFixed(
+          3,
+        )} ${coin.symbol.toUpperCase()}`}</span>
       </div>
 
       {/* Change */}
@@ -54,9 +57,11 @@ export default function WalletTableRow({ index, coin }: WalletTableRowProps) {
       </span>
 
       {/* Button */}
-      <button className="flex justify-center">
-        <Image src={trade} alt="trade" width={24} height={24} />
-      </button>
+      <TransferCryptoDialog coin={coin}>
+        <button className="flex justify-center">
+          <Image src={trade} alt="trade" width={24} height={24} />
+        </button>
+      </TransferCryptoDialog>
     </tr>
   )
 }

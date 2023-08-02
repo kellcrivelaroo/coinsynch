@@ -2,10 +2,15 @@
 import emptyWallet from '@/../../public/empty-wallet.svg'
 import plus from '@/../../public/plus-icon.svg'
 import walletIcon from '@/../../public/wallet-icon.svg'
+
 import { useDashboardContext } from '@/contexts/dashboard-context'
-import { CoinDataType } from '@/lib/types'
+import { CoinDataType, WalletInfo } from '@/lib/types'
 import { getUserWallet } from '@/lib/utils'
+
 import Image from 'next/image'
+
+import { useEffect, useState } from 'react'
+import AddCryptoDialog from '../AddCrypto/AddCryptoDialog'
 import CryptoCard from './CryptoCard'
 import WalletTableRow from './WalletTableRow'
 
@@ -15,8 +20,17 @@ interface WalletProps {
 
 export default function Wallet({ coinsData }: WalletProps) {
   const { user } = useDashboardContext()
-  const { coinsInfo } = getUserWallet(user, coinsData)
-  const windowSize = window.innerWidth
+  const [walletInfo, setWalletInfo] = useState<Array<WalletInfo>>([])
+  const [loading, setLoading] = useState(true)
+
+  // const windowSize = window.innerWidth
+  const windowSize = 1600
+
+  useEffect(() => {
+    const { coinsInfo } = getUserWallet(user, coinsData)
+    setWalletInfo(coinsInfo)
+    setLoading(false)
+  }, [user])
 
   return (
     <section className="flex flex-col rounded-lg md:bg-white md:shadow-lg">
@@ -32,16 +46,18 @@ export default function Wallet({ coinsData }: WalletProps) {
           <span className="text-xl font-bold md:text-2xl">My Wallet</span>
         </div>
 
-        <button
-          className="flex items-center gap-2 rounded-full bg-primary-500 p-1.5 text-sm text-white
-        transition-colors hover:bg-primary-300 md:px-4 md:py-2"
-        >
-          <Image src={plus} alt="wallet icon" width={12} height={12} />
-          <span className="hidden md:block">Add crypto</span>
-        </button>
+        <AddCryptoDialog>
+          <button
+            className="flex items-center gap-2 rounded-full bg-primary-500 p-1.5 text-sm text-white
+        transition-colors hover:bg-primary-400 md:px-4 md:py-2"
+          >
+            <Image src={plus} alt="wallet icon" width={12} height={12} />
+            <span className="hidden md:block">Add crypto</span>
+          </button>
+        </AddCryptoDialog>
       </header>
 
-      {coinsInfo.length <= 0 && (
+      {walletInfo.length <= 0 ? (
         <div
           className="flex min-h-[190px] items-center justify-center overflow-hidden rounded-lg bg-white shadow-lg 
       md:min-h-[308px] md:shadow-none"
@@ -61,25 +77,26 @@ export default function Wallet({ coinsData }: WalletProps) {
             <span className="text-sm">Add a crypto and start earning</span>
           </div>
         </div>
-      )}
-
-      {/* Mobile */}
-      {windowSize <= 767 ? (
+      ) : windowSize <= 767 ? (
         <div className="flex gap-4 md:hidden">
-          {coinsInfo.map((coin) => {
-            return <CryptoCard key={coin.id} coin={coin} />
+          {walletInfo.map((coin, index) => {
+            return <CryptoCard key={index} coin={coin} />
           })}
         </div>
       ) : (
         <table className="hidden min-w-full flex-col text-xs md:flex">
-          <thead className="walletTable w-full px-4 pb-2 text-secondary-500 ">
+          <thead
+            className={`w-full px-4 pb-2 text-secondary-500 ${
+              loading || !!walletInfo ? 'hidden' : 'walletTable'
+            }`}
+          >
             <span className="">#</span>
             <span>Crypto</span>
             <span className="">Holdings</span>
             <span>Change</span>
             <span className="flex justify-center">Trade</span>
           </thead>
-          {coinsInfo.map((coin, index) => {
+          {walletInfo.map((coin, index) => {
             return <WalletTableRow key={index} index={index} coin={coin} />
           })}
         </table>

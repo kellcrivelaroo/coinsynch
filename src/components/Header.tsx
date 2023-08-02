@@ -11,7 +11,7 @@ export default async function Header() {
 
   return (
     <header
-      className="grid-cols-auto mx-auto grid grid-rows-[1fr_auto] text-sm shadow-md md:w-full md:px-2
+      className="grid w-full grid-cols-[auto] grid-rows-[1fr_auto] text-sm shadow-md md:px-2
       lg:max-w-[1000px] lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1 lg:shadow-none xl:max-w-[1240px] 2xl:max-w-[1400px]"
     >
       {/* Logo and Nav (tablet+ only) */}

@@ -36,7 +36,7 @@ export default function SignInDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay z-20 bg-black/30 backdrop-blur-sm" />
         <Dialog.Content
-          className={`DialogContent relative z-30 flex flex-col items-center p-4 transition-all 
+          className={`DialogContent relative z-30 flex w-full max-w-[90vw] flex-col items-center p-4 transition-all 
           md:max-w-[340px] md:p-6 lg:max-w-[448px] lg:p-8
           ${signUp ? 'min-h-[444px]' : 'min-h-[316px]'}`}
         >

@@ -1,4 +1,5 @@
-import { api } from './axios'
+import { chartApi, coinApi, userApi } from './axios'
+import { fakeChartData, fakeCoins } from './fake-data'
 import { CoinDataType, UserDataType, UserWalletInfoType } from './types'
 
 export const formatCurrency = (value: number): string => {
@@ -12,30 +13,47 @@ export const formatCurrency = (value: number): string => {
 
 export const formatChangeInPercentage = (value: number, fixed = 3): string => {
   const positive = value >= 0 ? '+' : ''
-  const formatedValue = positive + value.toFixed(fixed) + '%'
+  const formatedValue = positive + value?.toFixed(fixed) + '%'
   return formatedValue
 }
 
 export const getCoinData = async () => {
-  return api
-    .get('/coins')
+  return coinApi
+    .get('')
     .then((response) => {
       return response.data
     })
-    .catch((error) => {
-      console.log(error)
-      return []
+    .catch(() => {
+      // console.log(error)
+      return fakeCoins
+    })
+}
+
+export const getChartData = async () => {
+  return chartApi
+    .get('')
+    .then((response) => {
+      return response.data
+    })
+    .catch(() => {
+      return fakeChartData
     })
 }
 
 export const getUserInfo = async () => {
-  return api
-    .get(`/users/1`)
+  return userApi
+    .get('/')
     .then((response) => {
       return response.data
     })
-    .catch((error) => {
-      console.log(error)
+    .catch(() => {
+      // fake data
+      return {
+        id: 1,
+        name: 'Kell',
+        avatar_url: 'https://github.com/kellcrivelaroo.png?size=80',
+        wallet: [],
+      }
     })
 }
 
@@ -50,7 +68,7 @@ export const getUserWallet = (
   }
   let total = 0
 
-  user.wallet.forEach((wallet) => {
+  user.wallet?.forEach((wallet) => {
     let coinValue = 0
     for (let i = 0; i < coinsData.length; i++) {
       if (coinsData[i].id === wallet.id) {

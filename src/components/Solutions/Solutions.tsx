@@ -50,7 +50,7 @@ export default function Solutions() {
             purus sit amet luctus venenatis, lectus magna fringilla u rna,
             porttitor
           </p>
-          <SignInDialog isSignUp={true}>
+          <SignInDialog signUpMode={true}>
             <button
               className="hidden w-[176px] min-w-[100px] justify-center rounded-full bg-primary-500 px-4 py-3 text-white 
         transition-colors hover:bg-primary-400 lg:flex"

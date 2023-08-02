@@ -1,14 +1,20 @@
-import { CoinDataType } from '@/lib/types'
+'use client'
+import { ChartDataType, CoinDataType } from '@/lib/types'
 import { formatChangeInPercentage } from '@/lib/utils'
 import Image from 'next/image'
+import CryptoChart from './CryptoChart'
 
 interface DailyVariationProps {
   coinInfo: CoinDataType
+  chartData: ChartDataType
 }
 
-export default function DailyVariation({ coinInfo }: DailyVariationProps) {
+export default function DailyVariation({
+  coinInfo,
+  chartData,
+}: DailyVariationProps) {
   const change = formatChangeInPercentage(
-    coinInfo.price_change_percentage_24h,
+    coinInfo?.price_change_percentage_24h,
     2,
   )
 
@@ -32,12 +38,12 @@ export default function DailyVariation({ coinInfo }: DailyVariationProps) {
                 height={40}
               />
             </div>
-            <span>{coinInfo.symbol.toUpperCase()}</span>
+            <span>{coinInfo?.symbol.toUpperCase()}</span>
           </div>
 
           <span
             className={`ml-2 text-sm md:text-base ${
-              coinInfo.price_change_percentage_24h >= 0
+              coinInfo?.price_change_percentage_24h >= 0
                 ? 'text-tertiary-700'
                 : 'text-quartenary-700'
             }`}
@@ -47,7 +53,9 @@ export default function DailyVariation({ coinInfo }: DailyVariationProps) {
         </div>
       </div>
 
-      <div className="flex flex-1 bg-primary-100"></div>
+      <div className="flex flex-1">
+        <CryptoChart chartData={chartData} />
+      </div>
     </section>
   )
 }

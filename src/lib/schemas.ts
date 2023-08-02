@@ -27,3 +27,31 @@ export const signUpFormSchema = z.object({
     errorMap: () => ({ message: 'You must accept the terms and conditions' }),
   }),
 })
+
+export const addCryptoFormSchema = z.object({
+  coin: z
+    .string({
+      invalid_type_error: 'You must choose a crypto',
+      required_error: 'You must choose a crypto',
+    })
+    .nonempty({ message: 'You must choose a crypto' }),
+  shares: z
+    .number({
+      invalid_type_error: 'Required field',
+    })
+    .positive({ message: 'Must be greater than zero' }),
+})
+
+export const transferCryptoFormSchema = z.object({
+  transfer: z
+    .string({
+      invalid_type_error: 'You must choose a transfer mode',
+      required_error: 'You must choose a transfer mode',
+    })
+    .nonempty({ message: 'You must choose a transfer mode' }),
+  shares: z
+    .number({
+      invalid_type_error: 'Required field',
+    })
+    .positive({ message: 'Must be greater than zero' }),
+})

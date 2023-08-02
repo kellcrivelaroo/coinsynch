@@ -26,7 +26,7 @@ export default function SubscriptionForm() {
     resolver: zodResolver(subscriptionFormSchema),
   })
 
-  const onSubmit: SubmitHandler<SubscriptionFormType> = (data) => {
+  const onSubmit: SubmitHandler<SubscriptionFormType> = () => {
     setIsLoading(true)
     setTimeout(() => {
       setSuccess(true)

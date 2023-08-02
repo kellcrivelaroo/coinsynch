@@ -46,7 +46,7 @@ export default function CryptoCards({ coin }: CryptoCardsProps) {
           </span>
         </div>
 
-        <button className="w-full rounded-full bg-primary-500 py-1 text-sm text-white hover:bg-primary-300">
+        <button className="w-full rounded-full bg-primary-500 py-1 text-sm text-white hover:bg-primary-400">
           Trade
         </button>
       </div>

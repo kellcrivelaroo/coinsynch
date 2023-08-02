@@ -12,9 +12,11 @@ interface BalanceProps {
 
 export default function Balance({ coinsData }: BalanceProps) {
   const [balance, setBalance] = useState(0)
-  const { user } = useDashboardContext()
+  const { user, setCoinsData } = useDashboardContext()
 
   useEffect(() => {
+    setCoinsData(coinsData)
+
     if (user) {
       const { totalBalance } = getUserWallet(user, coinsData)
       setBalance(totalBalance)

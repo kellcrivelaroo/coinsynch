@@ -7,16 +7,23 @@ export type CoinDataType = {
   price_change_percentage_24h: number
 }
 
-export type UserDataType = {
-  avatar_url: string
-  id: number
-  name: string
+export interface IUserWallet {
   wallet: [
     {
       id: string
       shares: number
     },
   ]
+}
+
+export type UserDataType = {
+  avatar_url: string
+  id: number
+  name: string
+  wallet: {
+    id: string
+    shares: number
+  }[]
 }
 
 export interface WalletInfo extends CoinDataType {
@@ -27,4 +34,10 @@ export type UserWalletInfoType = {
   userId: number
   coinsInfo: WalletInfo[]
   totalBalance: number
+}
+
+export type ChartDataType = {
+  market_caps: Array<Array<number>>
+  prices: Array<Array<number>>
+  total_volumes: Array<Array<number>>
 }

@@ -48,7 +48,7 @@ export default function Marquee({ coinsData }: MarqueeProps) {
   return (
     <div
       className="relative flex h-full w-full items-center justify-center overflow-hidden text-[10px] 
-      2xs:text-[11px] sm:text-xs md:w-[50%] lg:w-[380px]"
+      2xs:text-[11px] sm:text-xs md:w-[50%] md:text-[11px] lg:w-[380px] lg:text-xs"
     >
       <div className="hover:pause absolute flex w-[340%] animate-marquee flex-nowrap">
         <div className="pointer-events-none float-left flex w-[50%] justify-evenly">

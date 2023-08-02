@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 'use client'
-import { UserDataType } from '@/lib/types'
+import { CoinDataType, UserDataType, UserWalletInfoType } from '@/lib/types'
 import { ReactNode, createContext, useContext, useState } from 'react'
 
 interface ProviderProps {
@@ -12,15 +12,19 @@ type DashboardContextType = {
   toggleMenu: () => void
   user: UserDataType
   setUser: (user: UserDataType) => void
+  coinsData: Array<CoinDataType>
+  setCoinsData: (coins: Array<CoinDataType>) => void
+  wallet: UserWalletInfoType
+  setWallet: (wallet: UserWalletInfoType) => void
 }
 
 const DashboardContext = createContext<DashboardContextType>({
   isMenuOpen: false,
   toggleMenu: () => {},
   user: {
+    avatar_url: '',
     id: 0,
     name: '',
-    avatar_url: '',
     wallet: [
       {
         id: '',
@@ -29,20 +33,30 @@ const DashboardContext = createContext<DashboardContextType>({
     ],
   },
   setUser: () => {},
+  coinsData: [],
+  setCoinsData: () => {},
+  wallet: { coinsInfo: [], totalBalance: 0, userId: 0 },
+  setWallet: () => {},
 })
 
 export function DashboardContextProvider({ children }: ProviderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const [coinsData, setCoinsData] = useState<Array<CoinDataType>>([])
   const [user, setUser] = useState<UserDataType>({
     id: 0,
-    name: '',
     avatar_url: '',
+    name: '',
     wallet: [
       {
         id: '',
         shares: 0,
       },
     ],
+  })
+  const [wallet, setWallet] = useState<UserWalletInfoType>({
+    coinsInfo: [],
+    totalBalance: 0,
+    userId: 0,
   })
 
   const toggleMenu = () => {
@@ -51,7 +65,16 @@ export function DashboardContextProvider({ children }: ProviderProps) {
 
   return (
     <DashboardContext.Provider
-      value={{ isMenuOpen, toggleMenu, user, setUser }}
+      value={{
+        isMenuOpen,
+        toggleMenu,
+        user,
+        setUser,
+        coinsData,
+        setCoinsData,
+        wallet,
+        setWallet,
+      }}
     >
       {children}
     </DashboardContext.Provider>

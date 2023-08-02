@@ -5,11 +5,11 @@ import Footer from '@/components/Dashboard/Footer'
 import Header from '@/components/Dashboard/Header/Header'
 import News from '@/components/Dashboard/News'
 import Wallet from '@/components/Dashboard/Wallet/Wallet'
-import { getCoinData } from '@/lib/utils'
+import { getChartData, getCoinData } from '@/lib/utils'
 
 export default async function Dashboard() {
   const coinsData = await getCoinData()
-  const randomCoin = Math.floor(Math.random() * 10)
+  const chartData = await getChartData()
 
   return (
     <>
@@ -26,7 +26,7 @@ export default async function Dashboard() {
           className="flex h-full min-h-[160px] w-full justify-between gap-4 2xs:min-h-[192px] md:min-h-[112px] md:gap-6
         lg:gap-8 2xl:min-h-[140px]"
         >
-          <DailyVariation coinInfo={coinsData[randomCoin]} />
+          <DailyVariation coinInfo={coinsData[0]} chartData={chartData} />
           <News />
         </div>
 
