@@ -93,12 +93,14 @@ export default function Wallet({ coinsData }: WalletProps) {
 
       {!loading && walletInfo.length > 0 && (
         <>
+          {/* Mobile */}
           <div className="flex gap-4 md:hidden">
             {walletInfo.map((coin, index) => {
               return <CryptoCard key={index} coin={coin} />
             })}
           </div>
 
+          {/* Table+ */}
           <table className="hidden min-w-full flex-col text-xs md:flex">
             <thead
               className={`w-full px-4 pb-2 text-secondary-500 ${

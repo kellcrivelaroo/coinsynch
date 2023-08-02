@@ -1,6 +1,7 @@
 import { WalletInfo } from '@/lib/types'
 import { formatChangeInPercentage, formatCurrency } from '@/lib/utils'
 import Image from 'next/image'
+import TransferCryptoDialog from '../TransferCrypto/TransferCryptoDialog'
 
 interface CryptoCardsProps {
   coin: WalletInfo
@@ -46,9 +47,11 @@ export default function CryptoCards({ coin }: CryptoCardsProps) {
           </span>
         </div>
 
-        <button className="w-full rounded-full bg-primary-500 py-1 text-sm text-white hover:bg-primary-400">
-          Trade
-        </button>
+        <TransferCryptoDialog coin={coin}>
+          <button className="w-full rounded-full bg-primary-500 py-1 text-sm text-white hover:bg-primary-400">
+            Trade
+          </button>
+        </TransferCryptoDialog>
       </div>
     </div>
   )
