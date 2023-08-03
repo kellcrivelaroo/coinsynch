@@ -12,7 +12,11 @@ export default function Sign() {
         Sign in
       </button>
 
-      <button className="defaultButton" onClick={signUp}>
+      <button
+        className="mx-2 rounded-full bg-primary-500 px-3 py-px text-white
+        transition-colors md:mx-0 md:min-w-[100px] md:px-4 md:py-2.5"
+        onClick={signUp}
+      >
         Sign up
       </button>
     </>

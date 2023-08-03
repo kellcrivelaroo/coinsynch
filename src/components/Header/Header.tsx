@@ -1,10 +1,10 @@
 import logo from '@/../public/coinsynch-logo.svg'
-import menu from '@/../public/menu-icon.svg'
 import { getCoinData } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import Marquee from '../Marquee'
 import Sign from './Sign'
+import DropdownMenu from './DropdownMenu'
 
 export default async function Header() {
   const data = await getCoinData()
@@ -55,14 +55,7 @@ export default async function Header() {
       {/* Menu */}
       <div className="items center flex justify-end pr-4 md:pr-0 lg:col-start-3">
         {/* Mobile */}
-        <button className="block md:hidden">
-          <Image
-            src={menu}
-            width={40}
-            alt="CoinSynch Logo"
-            className="h-6 w-fit"
-          />
-        </button>
+        <DropdownMenu />
 
         {/* Tablet+ */}
         <div className="hidden items-center justify-end gap-6 pl-10 md:flex">
