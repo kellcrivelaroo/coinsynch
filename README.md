@@ -56,7 +56,7 @@ You can find a live demo of the Coinsynch project at [coinsynch-delta.vercel.app
    # or
    yarn dev
    ```
-2. Run the json-server (this step is optional, as the application is programmed to use fake data when the coin api or json-server are unavailable):
+2. Run the json-server (this step is optional, as the application is programmed to use fake data when either the coin api or json-server are unavailable):
    ```bash
    npm run server
    # or
