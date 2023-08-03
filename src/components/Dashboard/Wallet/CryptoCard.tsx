@@ -10,7 +10,7 @@ interface CryptoCardsProps {
 export default function CryptoCards({ coin }: CryptoCardsProps) {
   const symbol = coin.symbol.toUpperCase()
   return (
-    <div className="flex basis-1/2 flex-col overflow-hidden rounded-md bg-white shadow-lg">
+    <div className="flex flex-col overflow-hidden rounded-md bg-white shadow-lg">
       <header className="flex items-center justify-center bg-primary-100 p-4 text-sm">
         <Image
           src={coin.image}
