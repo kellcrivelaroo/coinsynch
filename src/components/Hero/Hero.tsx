@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       <section
-        className="defaultContainer relative mb-[160px] w-full overflow-x-hidden px-4 pt-14 md:mb-[247px] md:px-0 
+        className="defaultContainer relative mb-[160px] w-full px-4 pt-14 md:mb-[247px] md:px-0 
     md:pt-16 lg:mb-0 lg:min-h-[calc(100vh_-_20px)] lg:pt-40"
       >
         <div className="flex w-full gap-16">

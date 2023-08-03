@@ -8,7 +8,7 @@ import TopCryptos from '@/components/TopCryptos/TopCryptos'
 
 export default function Home() {
   return (
-    <main className="flex w-full flex-col items-center">
+    <main className="flex w-full flex-col items-center overflow-x-hidden">
       <Header />
       <SignInDialog />
       <Hero />
