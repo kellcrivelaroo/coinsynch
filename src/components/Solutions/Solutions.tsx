@@ -3,7 +3,7 @@ import atom from '@/../public/atom-icon.svg'
 import chart from '@/../public/chart-icon.svg'
 import device from '@/../public/devices-icon.svg'
 import SolutionsCard from './SolutionsCard'
-import SignInDialog from '../SignInAndUp/SignInDialog'
+import SignUpButton from './SignUpButton'
 
 const cards = [
   {
@@ -50,14 +50,7 @@ export default function Solutions() {
             purus sit amet luctus venenatis, lectus magna fringilla u rna,
             porttitor
           </p>
-          <SignInDialog signUpMode={true}>
-            <button
-              className="hidden w-[176px] min-w-[100px] justify-center rounded-full bg-primary-500 px-4 py-3 text-white 
-        transition-colors hover:bg-primary-400 lg:flex"
-            >
-              Sign up now
-            </button>
-          </SignInDialog>
+          <SignUpButton />
         </div>
 
         <div

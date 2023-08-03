@@ -25,6 +25,7 @@
     "chart.js": "^3.6.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "js-cookie": "^3.0.5",
     "json-server": "^0.17.3",
     "next": "13.4.12",
     "postcss": "8.4.27",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
+    "@types/js-cookie": "^3.0.3",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss-animate": "^1.0.6"

@@ -79,7 +79,7 @@ export default function Wallet({ coinsData }: WalletProps) {
               alt="wallet icon"
               width={80}
               height={80}
-              className="mb-4 h-12"
+              className="mb-4 h-12 w-auto"
             />
             <span className="mb-2 text-base font-bold">
               Nothing here yet...

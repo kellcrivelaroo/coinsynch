@@ -5,10 +5,12 @@ import Image from 'next/image'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
+import { useDashboardContext } from '@/contexts/dashboard-context'
 import { UserDataType } from '@/lib/types'
 import { useRouter } from 'next/navigation'
-import { useDashboardContext } from '@/contexts/dashboard-context'
 import { useEffect } from 'react'
+
+import Cookie from 'js-cookie'
 
 export default function Avatar({ user }: { user: UserDataType }) {
   const { setUser } = useDashboardContext()
@@ -19,12 +21,12 @@ export default function Avatar({ user }: { user: UserDataType }) {
   }, [])
 
   const handleLogout = () => {
+    Cookie.remove('auth_token')
     router.push('/')
   }
 
   return (
-    // Still need to deal with the layout shift that happens when opening the dropdownmenu with the fixed header
-
+    // Still need to deal with the layout shift that happens when opening the dropdownmenu with the fixed header and the page have scrollbar
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="flex items-center justify-end gap-2">
         <Image

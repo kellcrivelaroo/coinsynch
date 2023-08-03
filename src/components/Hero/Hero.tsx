@@ -1,14 +1,12 @@
-import arrow from '@/../public/arrow-right-icon.svg'
-import Image from 'next/image'
 import Carousel from './Carousel'
-import SignInDialog from '../SignInAndUp/SignInDialog'
+import SignUpButton from './SignUpButton'
 
 export default function Hero() {
   return (
     <>
       <section
-        className="defaultContainer relative mb-[160px] w-full px-4 pt-14 md:mb-[247px] md:px-0 md:pt-16 
-    lg:mb-0 lg:min-h-[calc(100vh_-_20px)] lg:pt-40"
+        className="defaultContainer relative mb-[160px] w-full overflow-x-hidden px-4 pt-14 md:mb-[247px] md:px-0 
+    md:pt-16 lg:mb-0 lg:min-h-[calc(100vh_-_20px)] lg:pt-40"
       >
         <div className="flex w-full gap-16">
           <div className="z-10 flex flex-col items-center text-center md:basis-1/2 md:items-start md:text-start">
@@ -22,15 +20,7 @@ export default function Hero() {
               urna, porttitor
             </p>
 
-            <SignInDialog signUpMode={true}>
-              <button
-                className="defaultButton mb-6 flex w-[180px] items-center justify-center gap-2 uppercase md:mb-10 md:w-[232px] md:py-3
-          md:text-base lg:mb-20 lg:w-[276px]"
-              >
-                sign up now
-                <Image src={arrow} alt="arrow" width={12} />
-              </button>
-            </SignInDialog>
+            <SignUpButton />
 
             <div className="space-x-4 text-primary-500 md:space-x-6 lg:space-x-8 lg:text-lg">
               <button

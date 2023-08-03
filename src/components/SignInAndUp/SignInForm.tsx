@@ -12,13 +12,15 @@ import FormErrorMessage from '../FormErrorMessage'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { useRouter } from 'next/navigation'
 
 type SignInFormType = z.infer<typeof signInFormSchema>
 
-export default function SignInForm({ close }: { close: () => void }) {
+export default function SignInForm({
+  handleLogin,
+}: {
+  handleLogin: () => void
+}) {
   const [passwordShown, setPasswordShown] = useState(false)
-  const router = useRouter()
 
   const {
     register,
@@ -29,8 +31,7 @@ export default function SignInForm({ close }: { close: () => void }) {
   })
 
   const onSubmit: SubmitHandler<SignInFormType> = () => {
-    close()
-    router.push('/dashboard')
+    handleLogin()
   }
 
   return (

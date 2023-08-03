@@ -1,14 +1,17 @@
 'use client'
+import chevron from '@/../public/chevron-prim-300.svg'
+import { useCoinsContext } from '@/contexts/coins-context'
 import { CoinDataType } from '@/lib/types'
+import { formatCurrency } from '@/lib/utils'
 import {
   Collapsible,
-  CollapsibleTrigger,
   CollapsibleContent,
+  CollapsibleTrigger,
 } from '@radix-ui/react-collapsible'
+import Cookie from 'js-cookie'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import chevron from '@/../public/chevron-prim-300.svg'
-import { formatCurrency } from '@/lib/utils'
 
 interface TopCryptoTableRowProps {
   coin: CoinDataType
@@ -20,11 +23,21 @@ export default function TopCryptoTableRow({
   index,
 }: TopCryptoTableRowProps) {
   const [open, setOpen] = useState(false)
+  const { signIn } = useCoinsContext()
+  const router = useRouter()
 
   const positive = coin.price_change_percentage_24h >= 0
   const grayRow = index % 2 ? 'bg-secondary-100/50' : ''
 
   const price = `US${formatCurrency(coin.current_price)}`
+
+  function handleClick() {
+    if (!Cookie.get('auth_token')) {
+      signIn()
+    } else {
+      router.push('/dashboard')
+    }
+  }
 
   return (
     <tr className={`${grayRow}`}>
@@ -64,7 +77,10 @@ export default function TopCryptoTableRow({
           </span>
 
           {/* Button */}
-          <button className="hidden rounded-full bg-tertiary-700 px-4 py-2 text-white hover:bg-tertiary-600 md:block">
+          <button
+            className="hidden rounded-full bg-tertiary-700 px-4 py-2 text-white hover:bg-tertiary-600 md:block"
+            onClick={handleClick}
+          >
             Buy
           </button>
 

@@ -1,10 +1,10 @@
 import logo from '@/../public/coinsynch-logo.svg'
 import menu from '@/../public/menu-icon.svg'
+import { getCoinData } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import Marquee from './Marquee'
-import SignInDialog from './SignInAndUp/SignInDialog'
-import { getCoinData } from '@/lib/utils'
+import Marquee from '../Marquee'
+import Sign from './Sign'
 
 export default async function Header() {
   const data = await getCoinData()
@@ -66,14 +66,15 @@ export default async function Header() {
 
         {/* Tablet+ */}
         <div className="hidden items-center justify-end gap-6 pl-10 md:flex">
-          <SignInDialog>
+          {/* <SignInDialog>
             <button className="transition-colors hover:text-primary-500">
               Sign in
             </button>
           </SignInDialog>
           <SignInDialog signUpMode={true}>
             <button className="defaultButton">Sign up</button>
-          </SignInDialog>
+          </SignInDialog> */}
+          <Sign />
         </div>
       </div>
     </header>
