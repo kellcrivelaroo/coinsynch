@@ -56,10 +56,15 @@ You can find a live demo of the Coinsynch project at [coinsynch-delta.vercel.app
    # or
    yarn dev
    ```
+2. Run the json-server (this step is optional, as the application is programmed to use fake data when either the coin api or json-server are unavailable):
+   ```bash
+   npm run server
+   # or
+   yarn server
+   ```
+3. Open your browser and navigate to `http://localhost:3000` to access the Coinsynch landing page.
 
-2. Open your browser and navigate to `http://localhost:3000` to access the Coinsynch landing page.
-
-3. For the dashboard, you need to log in.
+4. For the dashboard, you need to log in.
 
 ## Technologies
 
