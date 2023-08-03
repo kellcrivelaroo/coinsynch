@@ -43,12 +43,7 @@ export default function SignUpForm({
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* Name Input */}
-      <div
-        className="relative mb-6"
-        onClick={() => {
-          setChecked((current) => !current)
-        }}
-      >
+      <div className="relative mb-6">
         <Image
           src={user}
           alt="user"
