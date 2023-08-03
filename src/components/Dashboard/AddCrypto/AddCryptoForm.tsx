@@ -70,6 +70,7 @@ export default function AddCryptoForm({ closeDialog }: AddCryptoFormProps) {
 
       <input
         type="number"
+        step="any"
         placeholder="0.00"
         className="mt-6 w-full rounded-md border border-secondary-300 px-4 py-3"
         {...register('shares', { valueAsNumber: true })}

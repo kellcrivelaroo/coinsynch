@@ -24,8 +24,6 @@ export default function Wallet({ coinsData }: WalletProps) {
   const [walletInfo, setWalletInfo] = useState<Array<WalletInfo>>([])
   const [loading, setLoading] = useState(true)
 
-  console.log(user)
-
   useEffect(() => {
     const { coinsInfo } = getUserWallet(user, coinsData)
     setWalletInfo(coinsInfo)
