@@ -33,22 +33,13 @@ export default function TransferCryptoForm({
   const selectedCoin = user.wallet.filter((crypto) => crypto.id === coin.id)[0]
 
   const onSubmit: SubmitHandler<TransferCryptoType> = (data) => {
-    if (data.transfer === 'in') {
-      const newShares = selectedCoin.shares + data.shares
-      const userWallet = user.wallet.filter((crypto) => crypto.id !== coin.id)
-      userWallet.push({
-        id: selectedCoin.id,
-        shares: newShares,
-      })
-      setUser({
-        ...user,
-        wallet: [...userWallet],
-      })
-    } else if (data.shares > selectedCoin.shares && data.transfer === 'out') {
-      setCustomValidation('Invalid number of shares')
-    } else {
-      setCustomValidation('')
-      if (data.transfer === 'out') {
+    if (data.transfer === 'out') {
+      // check if user is trying to transfer out more shares than he have
+      if (data.shares > selectedCoin.shares) {
+        setCustomValidation('Invalid number of shares')
+      } else {
+        setCustomValidation('')
+
         // remove intire selected crypto
         if (data.shares === selectedCoin.shares) {
           const userWallet = user.wallet.filter(
@@ -73,9 +64,21 @@ export default function TransferCryptoForm({
             wallet: [...userWallet],
           })
         }
+        closeDialog()
       }
+    } else if (data.transfer === 'in') {
+      const newShares = selectedCoin.shares + data.shares
+      const userWallet = user.wallet.filter((crypto) => crypto.id !== coin.id)
+      userWallet.push({
+        id: selectedCoin.id,
+        shares: newShares,
+      })
+      setUser({
+        ...user,
+        wallet: [...userWallet],
+      })
+      closeDialog()
     }
-    closeDialog()
   }
 
   return (
